@@ -1,3 +1,96 @@
-<p>
-  cards works!
-</p>
+<div class="autores" id="autores">
+
+  <!-- Persona 1 -->
+
+  <div class="persona">
+      <div class="nombre">
+          <a>Marcos O.</a>
+      </div>
+      <div class="foto">
+          <img src="./assets/foto_marcos.jpg" alt="Foto marcos">
+      </div>
+      <div class="role">
+          <a>Desarrollador</a>
+      </div>
+      <div class="datos">
+          <a>Alumno de la UPM. En el último año de Ingeniería de Software, actualmente en Babelcamp 2018.</a>
+      </div>
+  </div>
+
+  <!-- Persona 2 -->
+
+  <div class="persona">
+      <div class="nombre">
+          <a>Pablo P.</a>
+      </div>
+      <div class="foto">
+          <img src="./assets/foto_pablo.jpg" alt="Foto pablo">
+      </div>
+      <div class="role">
+          <a>Desarrollador</a>
+      </div>
+      <div class="datos">
+          <a>Alumno de la UPM. En el último año de Ingeniería de Software, actualmente en Babelcamp 2018.</a>
+      </div>
+  </div>
+
+  <!-- Persona 3 -->
+
+  <div class="persona">
+      <div class="nombre">
+          <a>Benjamin S.</a>
+      </div>
+      <div class="foto">
+          <img src="./assets/foto_beni.jpg" alt="Foto benjamin">
+      </div>
+      <div class="role">
+          <a>Desarrollador</a>
+      </div>
+      <div class="datos">
+          <a>Alumno de la UPM. En el último año de Ingeniería de Software, actualmente en Babelcamp 2018.</a>
+      </div>
+  </div>
+
+</div>
+
+<div id="formulario_contacto">
+  <form name="form_contacto" id="form_contacto" method="post">
+      <fieldset>
+          <legend>Contacto</legend>
+          <p>
+              <label for="nombre">Nombre:</label>
+              <input type="text" id="nombre" name="nombre" size="30" placeholder="Escriba su nombre" required>
+          </p>
+          <div id="nombre-validate" class="validate oculto">
+              <i class="fa fa-times-circle"></i> El nombre no puede estar vacío</div>
+          <p>
+              <label for="email">Email:</label>
+              <input type="text" id="email" name="email" size="30" maxlength="200" placeholder="Escriba su email" required>
+          </p>
+          <div id="email-validate" class="validate oculto">
+              <i class="fa fa-times-circle"></i> El email no puede estar vacío</div>
+          <p>
+              <label class="top" for="sugerencias">Sugerencias:</label>
+              <textarea id="sugerencias" name="sugerencias" placeholder="Escriba sus sugerencias" maxlength="350"></textarea>
+          </p>
+          <p>
+              <input type="checkbox" id="newsletter" name="newsletter">
+              <label for="newsletter">Deseo recibir correos sobre pingüinos</label>
+          </p>
+          <p>
+              <input type="checkbox" id="terminos" name="terminos">
+              <label for="terminos">Definitivamente he leído con detenimiento y acepto los términos de privacidad</label>
+          </p>
+          <div id="terminos-validate" class="validate oculto">
+              <i class="fa fa-times-circle"></i> Debe aceptar los términos de privacidad</div>
+          <p>
+              <input id="submit" type="button" value="Aceptar" onclick="recogerDatos()">
+              <input id="reset" type="reset" value="Borrar" onclick="resetValidate()">
+          </p>
+      </fieldset>
+  </form>
+</div>
+<div id="resultado_sugerencia" class="oculto salidaDatos">
+  <h2>Datos de la sugerencia:</h2>
+  <ul id="parrafo_resultado"> </ul>
+</div>

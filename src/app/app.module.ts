@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
+import { AboutModule } from './about/about.module';
+import { BlogModule } from './blog/blog.module';
 
 
 @NgModule({

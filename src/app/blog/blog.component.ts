@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'bbl-about',
+  selector: 'bbl-blog',
   template: `
-    <bbl-cards></bbl-cards>
-    <bbl-form></bbl-form>
+    <p>
+      blog works!
+    </p>
   `,
   styles: []
 })
-export class AboutComponent implements OnInit {
+export class BlogComponent implements OnInit {
 
   constructor() { }
 
