@@ -10,8 +10,17 @@ a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover {
     color: rgb(0, 0, 0);
 }
 
+a:hover{
+    cursor: pointer;
+    color: black;
+}
+
 li img {
     /*imagen barras*/
     width: 25px;
     height: 25px;
+}
+
+li{
+    list-style: none;
 }
