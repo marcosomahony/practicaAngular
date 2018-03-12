@@ -3,9 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'bbl-home',
   template: `
-    <p>
-      home works!
-    </p>
+    <bbl-home-content></bbl-home-content>
   `,
   styles: []
 })

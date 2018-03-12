@@ -13,3 +13,84 @@
     width: 60%;
     margin: 2rem auto;
 }
+
+@media screen and (max-width: 1024px) {
+    /*tablet grande*/
+    /*HOME*/
+    .wrapper {
+        width: 80%;
+    }
+    iframe {
+        height: 400px;
+    }
+    header h1 {
+        font-size: 2rem;
+    }
+    /*ABOUT*/
+    div.autores {
+        display: block;
+        margin: 0;
+    }
+    div.persona {
+        max-width: 100%;
+        width: 100%;
+        margin: 0;
+        margin-top: 1rem;
+    }
+}
+
+@media screen and (max-width:768px) {
+    /*tablet*/
+    /*HOME*/
+    .wrapper {
+        width: 90%;
+    }
+    iframe {
+        height: 350px;
+    }
+    aside {
+        padding: 0rem;
+        float: none;
+        width: 100%;
+        margin: 1rem 0rem;
+        padding: 1rem 0rem;
+    }
+    aside p, aside h2 {
+        margin: 0rem 1rem;
+    }
+    article p {
+        width: 100%;
+    }
+    article figure.fig1, article figure.fig2 {
+        width: 100%;
+        display: block;
+        margin: 0rem;
+        padding-bottom: 1rem;
+    }
+    nav ul {
+        grid-template-columns: 5% 1fr 1fr 1fr 1fr 1fr 5%;
+    }
+}
+
+@media screen and (max-width:480px) {
+    /*movil*/
+    /*HOME*/
+    .wrapper {
+        width: 95%;
+    }
+    .menu ul {
+        display: block;
+    }
+    .menu .esconder {
+        display: none;
+    }
+    .replegado {
+        display: block;
+    }
+    header p {
+        display: none;
+    }
+    iframe {
+        height: 200px;
+    }
+}
