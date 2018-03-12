@@ -8,3 +8,8 @@
     --color_content: rgb(240, 251, 255);
     --color_title_text: rgb(241, 253, 252);
 }/* You can add global styles to this file, and also import other style files */
+
+.wrapper {
+    width: 60%;
+    margin: 2rem auto;
+}
