@@ -1,0 +1,11 @@
+a{
+    color: #ff0037;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    background-color: #ff0037;
+}
+
+a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover {
+    color: rgb(0, 0, 0);
+}
