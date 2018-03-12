@@ -1,0 +1,47 @@
+article figure {
+    margin: auto 1rem;
+}
+
+article figure.fig1 {
+    width: 35%;
+    float: right;
+    margin-top: 0%;
+}
+
+article figure.fig2 {
+    width: 40%;
+    float: left;
+    margin-top: 0%;
+    margin-left: 0rem;
+}
+
+figure img {
+    width: 100%;
+}
+
+article p {
+    margin-right: 1rem;
+    font-family: 'Raleway', sans-serif;
+    text-align: justify;
+}
+
+article h2, article h3 {
+    font-family: 'Raleway', serif;
+    font-weight: 800;
+}
+
+p span {
+    font-weight: 600;
+}
+
+
+aside {
+    background-color: var(--color_content);
+    font-style: italic;
+    font-family: 'Raleway', serif;
+    padding: 0rem 1rem;
+    float: right;
+    width: 25%;
+    font-size: 0.9rem;
+    margin: 0.5rem;
+}
