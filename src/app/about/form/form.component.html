@@ -1,41 +1,64 @@
-<div id="formulario_contacto">
-  <form name="form_contacto" id="form_contacto" method="post">
-      <fieldset>
-          <legend>Contacto</legend>
-          <p>
-              <label for="nombre">Nombre:</label>
-              <input type="text" id="nombre" name="nombre" size="30" placeholder="Escriba su nombre" required>
-          </p>
-          <div id="nombre-validate" class="validate oculto">
-              <i class="fa fa-times-circle"></i> El nombre no puede estar vacío</div>
-          <p>
-              <label for="email">Email:</label>
-              <input type="text" id="email" name="email" size="30" maxlength="200" placeholder="Escriba su email" required>
-          </p>
-          <div id="email-validate" class="validate oculto">
-              <i class="fa fa-times-circle"></i> El email no puede estar vacío</div>
-          <p>
-              <label class="top" for="sugerencias">Sugerencias:</label>
-              <textarea id="sugerencias" name="sugerencias" placeholder="Escriba sus sugerencias" maxlength="350"></textarea>
-          </p>
-          <p>
-              <input type="checkbox" id="newsletter" name="newsletter">
-              <label for="newsletter">Deseo recibir correos sobre pingüinos</label>
-          </p>
-          <p>
-              <input type="checkbox" id="terminos" name="terminos">
-              <label for="terminos">Definitivamente he leído con detenimiento y acepto los términos de privacidad</label>
-          </p>
-          <div id="terminos-validate" class="validate oculto">
-              <i class="fa fa-times-circle"></i> Debe aceptar los términos de privacidad</div>
-          <p>
-              <input id="submit" type="button" value="Aceptar" onclick="recogerDatos()">
-              <input id="reset" type="reset" value="Borrar" onclick="resetValidate()">
-          </p>
-      </fieldset>
-  </form>
-</div>
-<div id="resultado_sugerencia" class="oculto salidaDatos">
-  <h2>Datos de la sugerencia:</h2>
-  <ul id="parrafo_resultado"> </ul>
-</div>
+<!--     <div class="card">
+        <div class="card-header">
+            Contacto
+        </div>
+        <div class="card-body">
+            <h4 class="card-title">Title</h4>
+            <p class="card-text">Text</p>
+        </div>
+        <div class="card-footer text-muted">
+            Footer
+        </div>
+    </div> -->
+    
+    
+    <form [formGroup]="formContacto" (ngSubmit) = "enviarFormContacto()">
+        <fieldset>
+            <legend>Contacto</legend>
+            <p>
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" size="30" 
+                placeholder="Escriba su nombre" 
+                formControlName="nombre"
+                required>
+            </p>
+           <!--  <div id="nombre-validate" class="validate oculto">
+                <i class="fa fa-times-circle"></i> El nombre no puede estar vacío</div> -->
+            <p>
+                <label for="email">Email</label>
+                <input type="text" id="email" size="30" 
+                maxlength="200"
+                placeholder="Escriba su email" 
+                formControlName="email"
+                required>
+            </p>
+<!--             <div id="email-validate" class="validate oculto">
+                <i class="fa fa-times-circle"></i> El email no puede estar vacío</div> -->
+            <p>
+                <label class="top" for="sugerencias">Sugerencias</label>
+                <textarea id="sugerencias" maxlength="350" 
+                placeholder="Escriba sus sugerencias" 
+                formControlName="sugerencias"></textarea>
+            </p>
+            <p>
+                <input type="checkbox" id="newsletter" formControlName="newsletter">
+                <label for="newsletter">Deseo recibir correos sobre pingüinos</label>
+            </p>
+            <p>
+                <input type="checkbox" id="terminos" formControlName="terminos">
+                <label for="terminos">Definitivamente he leído con detenimiento y acepto los términos de privacidad</label>
+            </p>
+<!--             <div id="terminos-validate" class="validate oculto">
+                <i class="fa fa-times-circle"></i> Debe aceptar los términos de privacidad</div> -->
+            <p>
+                <button type="submit"
+                [disabled]="formContacto.pristine" class="btn btn-success">Enviar</button> &nbsp;
+        <button type="reset"
+                [disabled]="formContacto.pristine" class="btn btn-danger">Borrar</button>
+            </p>
+        </fieldset>
+    </form>
+<!-- <div id="resultado_sugerencia" class="oculto salidaDatos">
+    <h2>Datos de la sugerencia</h2>
+    <ul id="parrafo_resultado"> </ul>
+</div> -->
