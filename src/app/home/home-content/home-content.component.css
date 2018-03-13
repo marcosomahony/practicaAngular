@@ -18,6 +18,8 @@ article figure.fig2 {
 
 figure img {
     width: 100%;
+    border: 1px sold black;
+    border-radius: 4px;
 }
 
 article p {
@@ -42,7 +44,7 @@ aside {
     background-color: var(--color_content);
     font-style: italic;
     font-family: 'Raleway', serif;
-    padding: 0rem 1rem;
+    padding: 1rem 1rem;
     float: right;
     width: 25%;
     font-size: 0.9rem;
