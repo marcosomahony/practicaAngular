@@ -1,26 +1,44 @@
 <div class="container">
     <div class="row">
-        <ul class="replegado">
-            <li>
-                <a href="#">
-                    <img src="./assets/bars.png" alt="Barras" title="Barras">
-                </a>
-            </li>
-        </ul>
+        <li class="replegado">
+            <a (click)="replegar()">
+                <img src="./assets/bars.png" alt="Barras" title="Barras">
+            </a>
+        </li>
     </div>
-    <div class="row">
+    <div class="row margen oculto">
         <nav class="col-12">
             <nav class="nav nav-pills nav-stacked">
                 <li class="nav-item nav-link">
-                    <a class="nav-link active" routerLinkActive="active" routerLink="home">Home</a>
+                    <a class="nav-link active" routerLinkActive="active" routerLink="home">HOME</a>
                 </li>
                 <li class="nav-item nav-link">
-                    <a class="nav-link" routerLinkActive="active" routerLink="about">About</a>
+                    <a class="nav-link" routerLinkActive="active" routerLink="about">ABOUT</a>
                 </li>
                 <li class="nav-item nav-link">
-                    <a class="nav-link" routerLinkActive="active" routerLink="blog">Blog</a>
+                    <a class="nav-link" routerLinkActive="active" routerLink="blog">BLOG</a>
                 </li>
             </nav>
         </nav>
     </div>
+
+    <div *ngIf ="show; then menuReplegable"></div>
+    <ng-template #menuReplegable>
+        <div class="row margen">
+            <nav class="col-12">
+                <nav class="nav nav-pills nav-stacked">
+                    <li class="nav-item nav-link">
+                        <a class="nav-link active" routerLinkActive="active" routerLink="home">HOME</a>
+                    </li>
+                    <li class="nav-item nav-link">
+                        <a class="nav-link" routerLinkActive="active" routerLink="about">ABOUT</a>
+                    </li>
+                    <li class="nav-item nav-link">
+                        <a class="nav-link" routerLinkActive="active" routerLink="blog">BLOG</a>
+                    </li>
+                </nav>
+            </nav>
+        </div>
+    </ng-template>
+    
 </div>

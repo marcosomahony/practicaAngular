@@ -19,3 +19,20 @@ h1 img {
     width: 1.5rem;
     height: 1.5rem;
 }
+
+@media screen and (max-width: 1024px) {
+    /*tablet grande*/
+    header h1 {
+        font-size: 2rem;
+    }
+}
+
+@media screen and (max-width:480px) {
+    /*movil*/
+
+    p {
+        display: none;
+    }
+}
+
+

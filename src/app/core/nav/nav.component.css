@@ -1,9 +1,28 @@
-a{
-    color: #ff0037;
+nav {
+    background-color: #888;
+    border-radius: 4px;
 }
 
-.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
-    background-color: #ff0037;
+a{
+    color: white;
+}
+
+.margen{
+    margin-bottom: 1rem;
+}
+
+.nav-link.active {
+    background-color: #444;
+}
+
+.nav-item{
+    padding-top: 0rem;
+    padding-bottom: 0rem;
+}
+
+.nav-link a{
+    align-content: center;
+    margin: 0 auto;
 }
 
 a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover {
@@ -17,10 +36,32 @@ a:hover{
 
 li img {
     /*imagen barras*/
-    width: 25px;
-    height: 25px;
+    width: 28px;
+    height: 28px;
+    display: none;
 }
 
 li{
     list-style: none;
+}
+
+@media screen and (max-width:480px) {
+    .container{
+        padding-top: 1rem;
+        width: 90%;
+    }
+
+    .oculto {
+        display: none;
+    }
+
+    li img {
+        display: inherit;
+    }
+
+    .nav-link{
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
 }
