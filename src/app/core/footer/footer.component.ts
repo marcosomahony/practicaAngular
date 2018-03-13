@@ -12,7 +12,7 @@ export class FooterComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.autores = 'Marcos OMahony, Pablo Psichalis, Beniamins Catalin Santa';
+    this.autores = 'Marcos O\'Mahony, Pablo Psichalis, Beniamin Catalin Santa';
     this.lugar = 'Babel';
     this.fecha = '2018';
   }
