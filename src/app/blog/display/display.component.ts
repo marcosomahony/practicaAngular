@@ -12,11 +12,9 @@ export class DisplayComponent implements OnInit {
 
   items: Observable<any[]>;
 
-  constructor(public firebase: FirebaseService) {
-    this.items = firebase.getDB();
-  }
+  constructor(public firebase: FirebaseService) { }
 
   ngOnInit() {
+    this.items = this.firebase.getDB();
   }
-
 }
