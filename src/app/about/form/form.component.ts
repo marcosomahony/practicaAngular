@@ -26,8 +26,6 @@ export class FormComponent implements OnInit {
       newsletter: false,
       terminos: false
     };
-
-    console.dir(this.formulario);
   }
 
   enviarFormContacto() {

@@ -69,13 +69,13 @@
                 name="terminos"
                 #terminosState = "ngModel"
                 required>
-                <label for="terminos"> Definitivamente he leído con detenimiento y acepto los términos de privacidad</label>
+                <label for="terminos" required> Definitivamente he leído con detenimiento y acepto los términos de privacidad</label>
             </div>
             
             <!-- Errores de los terminos  -->
              <div [hidden]="terminosState.valid || terminosState.untouched ">
                 <div class="alert alert-danger" 
-                    [hidden]="!terminosState.errors.required">
+                    [hidden]="!terminosState.errors?.required">
                     Debe leer detenidamente y aceptar los términos de privacidad.
                 </div>
             </div>
