@@ -6,6 +6,7 @@ article figure.fig1 {
     width: 35%;
     float: right;
     margin-top: 0%;
+    margin-right: 0rem;
 }
 
 article figure.fig2 {
@@ -36,6 +37,8 @@ p span {
 
 
 aside {
+    border-radius: 4px;
+    border: 1px solid #d2eaf2;
     background-color: var(--color_content);
     font-style: italic;
     font-family: 'Raleway', serif;
@@ -44,6 +47,7 @@ aside {
     width: 25%;
     font-size: 0.9rem;
     margin: 0.5rem;
+    margin-left: 1rem;
 }
 
 iframe {
