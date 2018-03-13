@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
+import { FirebaseService } from '../../services/firebase.service';
 
 @Component({
   selector: 'bbl-display',
@@ -11,8 +12,8 @@ export class DisplayComponent implements OnInit {
 
   items: Observable<any[]>;
 
-  constructor(db: AngularFireDatabase) {
-    this.items = db.list('/posts').valueChanges();
+  constructor(public firebase: FirebaseService) {
+    this.items = firebase.getDB();
   }
 
   ngOnInit() {

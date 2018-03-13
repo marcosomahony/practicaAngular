@@ -1,19 +1,19 @@
 <div class="container">
-  <p>asdf</p>
-  <ul class="list-group" *ngFor="let item of items | async">
-    <li class="list-group-item">
-      <div class="card">
-        <div class="card-header">
-          {{ item.title }}
-        </div>
-        <div class="card-body">
-          <img [src]="item.img" class="img-fluid danger p-2 col-2 float-left" alt="">
-          <p class="card-text">{{ item.content }}</p>
-        </div>
-        <div class="card-footer text-right">
-          Autor: {{ item.author }}
-        </div>
+  <div *ngFor="let item of items | async">
+    <div class="card p-1 mb-4">
+      <div class="card-header">
+        {{ item.title }}
       </div>
-    </li>
-  </ul>
+      <div class="card-body">
+        <img [src]="item.img" class="img-fluid danger p-2 mr-3 col-2 float-left" alt="">
+        <p class="card-text">{{ item.content }}</p>
+      </div>
+      <div class="card-footer">
+        <p class="float-right m-0">
+          Autor: {{ item.author }}
+        </p>
+        <button type="button" class="btn btn-primary float-left mr-2 px-5">Abrir</button>
+      </div>
+    </div>
+  </div>
 </div>
