@@ -1,3 +1,28 @@
-<p>
-  new works!
-</p>
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      <h4 class="card-title">Nuevo Post</h4>
+    </div>
+    <div class="card-body">
+      <form>
+        <div class="form-group">
+          <label for="formTitulo">Titulo del Post: </label>
+          <input type="text" class="form-control" id="formTitulo" placeholder="Obligatorio">
+        </div>
+        <div class="form-group">
+          <label for="formAutor">Firma: </label>
+          <input type="text" class="form-control" id="formAutor" placeholder="Obligatorio">
+        </div>
+        <div class="form-group">
+          <label for="formImagen">Imgen: </label>
+          <input type="text" class="form-control" id="formImagen" placeholder="Opcional. Copie la url de la imagen que desea incluir.">
+        </div>
+        <div class="form-group">
+          <label for="formContenido">Contenido del Post: </label>
+          <textarea class="form-control" id="formContenido" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>

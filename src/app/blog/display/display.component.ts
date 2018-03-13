@@ -11,7 +11,7 @@ export class DisplayComponent implements OnInit {
 
   items: Observable<any[]>;
 
-  constructor(db: AngularFireDatabase) {
+  constructor(public db: AngularFireDatabase) {
     this.items = db.list('/posts').valueChanges();
   }
 
