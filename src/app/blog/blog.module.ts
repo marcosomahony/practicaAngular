@@ -6,11 +6,13 @@ import { BlogComponent } from './blog.component';
 import { DisplayComponent } from './display/display.component';
 import { NewComponent } from './new/new.component';
 import { FirebaseService } from '../services/firebase.service';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
-    BlogRoutingModule
+    BlogRoutingModule,
+    FormsModule
   ],
   declarations: [BlogComponent,
     DisplayComponent,
