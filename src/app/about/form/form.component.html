@@ -29,7 +29,9 @@
 
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="text" class="form-control" size="30" 
+                <input type="text" 
+                pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+                class="form-control" size="30" 
                 maxlength="200" 
                 placeholder="Escriba su email" 
                 [(ngModel)]="datosContacto.email"
@@ -43,6 +45,11 @@
                 <div class="alert alert-danger" 
                     [hidden]="!emailState.errors?.required">
                     El email es obligatorio
+                </div>
+
+                <div class="alert alert-danger" 
+                    [hidden]="!emailState.errors?.pattern">
+                    El email debe tener el formato 'nombre@dominio.extension'
                 </div>
             </div>
             
