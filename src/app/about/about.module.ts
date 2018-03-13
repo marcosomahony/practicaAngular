@@ -5,12 +5,18 @@ import { AboutRoutingModule } from './about-routing.module';
 import { AboutComponent } from './about.component';
 import { FormComponent } from './form/form.component';
 import { CardsComponent } from './cards/cards.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
-    AboutRoutingModule
+    AboutRoutingModule,
+    FormsModule,
   ],
-  declarations: [AboutComponent, FormComponent, CardsComponent]
+  declarations: [
+    AboutComponent,
+    FormComponent,
+    CardsComponent
+  ]
 })
 export class AboutModule { }
