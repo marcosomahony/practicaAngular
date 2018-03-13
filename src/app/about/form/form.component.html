@@ -17,11 +17,11 @@
             </div>
             <!-- Errores del Nombre -->
             <div [hidden]="nombreState.valid || nombreState.untouched ">
-                <div class="error-message" 
+                <div class="alert alert-danger" 
                     [hidden]="!nombreState.errors?.required">
                     El nombre es obligatorio
                 </div>
-                <div class="error-message" 
+                <div class="alert alert-danger" 
                     [hidden] = "!nombreState.errors?.minlength">
                     El nombre debe tener un mínimo de 2 caracteres
                 </div>
@@ -40,7 +40,7 @@
 
             <!-- Errores del email  -->
             <div [hidden]="emailState.valid || emailState.untouched ">
-                <div class="error-message" 
+                <div class="alert alert-danger" 
                     [hidden]="!emailState.errors?.required">
                     El email es obligatorio
                 </div>
@@ -74,7 +74,7 @@
             
             <!-- Errores de los terminos  -->
              <div [hidden]="terminosState.valid || terminosState.untouched ">
-                <div class="error-message" 
+                <div class="alert alert-danger" 
                     [hidden]="!terminosState.errors.required">
                     Debe leer detenidamente y aceptar los términos de privacidad.
                 </div>
