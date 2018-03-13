@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Post } from '../../models/post.model';
+import { FirebaseService } from '../../services/firebase.service';
 
 @Component({
   selector: 'bbl-new',
@@ -12,7 +13,8 @@ export class NewComponent implements OnInit {
   sImagen: string;
   sContenido: string;
   oPost: Post;
-  constructor() { }
+
+  constructor(public firebase: FirebaseService) { }
 
   ngOnInit() {
     this.sTitulo = '';
@@ -23,7 +25,10 @@ export class NewComponent implements OnInit {
 
   addPost() {
     this.oPost = {titulo: this.sTitulo, autor: this.sAutor, imagen: this.sImagen, contenido: this.sContenido};
+    this.firebase.addPost(this.oPost);
     console.log(this.oPost);
   }
+
+
 
 }
