@@ -10,9 +10,14 @@ import { CardsComponent } from './cards/cards.component';
 @NgModule({
   imports: [
     CommonModule,
+    AboutRoutingModule,
     ReactiveFormsModule,
-    AboutRoutingModule
+    FormsModule
   ],
-  declarations: [AboutComponent, FormComponent, CardsComponent]
+  declarations: [
+    AboutComponent,
+    FormComponent,
+    CardsComponent
+  ]
 })
 export class AboutModule { }

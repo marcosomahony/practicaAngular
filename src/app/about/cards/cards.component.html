@@ -1,54 +1,18 @@
-<div class="autores" id="autores">
-
-  <!-- Persona 1 -->
-
-  <div class="persona">
-      <div class="nombre">
-          <a>Marcos O.</a>
-      </div>
-      <div class="foto">
-          <img src="./assets/foto_marcos.jpg" alt="Foto marcos">
-      </div>
-      <div class="role">
-          <a>Desarrollador</a>
-      </div>
-      <div class="datos">
-          <a>Alumno de la UPM. En el último año de Ingeniería de Software, actualmente en Babelcamp 2018.</a>
-      </div>
-  </div>
-
-  <!-- Persona 2 -->
-
-  <div class="persona">
-      <div class="nombre">
-          <a>Pablo P.</a>
-      </div>
-      <div class="foto">
-          <img src="./assets/foto_pablo.jpg" alt="Foto pablo">
-      </div>
-      <div class="role">
-          <a>Desarrollador</a>
-      </div>
-      <div class="datos">
-          <a>Alumno de la UPM. En el último año de Ingeniería de Software, actualmente en Babelcamp 2018.</a>
-      </div>
-  </div>
-
-  <!-- Persona 3 -->
-
-  <div class="persona">
-      <div class="nombre">
-          <a>Benjamin S.</a>
-      </div>
-      <div class="foto">
-          <img src="./assets/foto_beni.jpg" alt="Foto benjamin">
-      </div>
-      <div class="role">
-          <a>Desarrollador</a>
-      </div>
-      <div class="datos">
-          <a>Alumno de la UPM. En el último año de Ingeniería de Software, actualmente en Babelcamp 2018.</a>
-      </div>
-  </div>
-
+<div class="container">
+    <div class="row">
+        <div class="col-4 p-2" *ngFor="let persona of aPersonas">
+            <div class="card">
+                <div class="card-header">
+                    {{ persona.role }}
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title text-center">{{ persona.name }}</h4>
+                    <img [src]="persona.pic" class="img-fluid rounded" alt="Foto {{ persona.name }}">
+                </div>
+                <div class="card-footer text-muted">
+                    {{ persona.description }}
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
