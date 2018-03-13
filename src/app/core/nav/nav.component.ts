@@ -16,7 +16,6 @@ export class NavComponent implements OnInit {
 
   replegar() {
     this.show = !this.show;
-    console.log(this.show);
   }
 
 }
