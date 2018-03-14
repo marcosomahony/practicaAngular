@@ -1,6 +1,7 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ContactoIf } from '../../models/contacto.model';
+import { FirebaseService } from '../../services/firebase.service';
 
 @Component({
   selector: 'bbl-form',
@@ -13,7 +14,7 @@ export class FormComponent implements OnInit {
   showResultados: boolean;
   @ViewChild('formContacto') formulario: any;
 
-  constructor() { }
+  constructor(public firebase: FirebaseService) { }
 
   ngOnInit() {
     this.inicializarForm();
@@ -40,6 +41,7 @@ export class FormComponent implements OnInit {
 
   imprimirResultado() {
     this.showResultados = true;
+    this.firebase.addContacto(this.datosContacto);
   }
 
   volver() {
