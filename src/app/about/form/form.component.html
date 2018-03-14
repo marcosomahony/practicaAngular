@@ -1,105 +1,120 @@
-<div class="card">
-    <div class="card-header">
-        <h4>Contacto</h4>
+<div *ngIf="!showResultados; then formularioContacto"></div>
+<ng-template #formularioContacto>
+    <div class="card">
+        <div class="card-header">
+            <h4>Contacto</h4>
+        </div>
+        <div class="card-body">
+            <form #formContacto="ngForm" (ngSubmit)="enviarFormContacto()" novalidate>
+                
+                <div class="form-group">
+                    <label class="center-block">Nombre</label>
+                    <input type="text" class="form-control" size="30" 
+                    placeholder="Escriba su nombre"
+                    minlength="2"
+                    [(ngModel)]="datosContacto.nombre"
+                    name="nombre" 
+                    #nombreState = "ngModel"
+                    required>
+                </div>
+                <!-- Errores del Nombre -->
+                <div [hidden]="nombreState.valid || nombreState.untouched ">
+                    <div class="alert alert-danger" 
+                        [hidden]="!nombreState.errors?.required">
+                        El nombre es obligatorio
+                    </div>
+                    <div class="alert alert-danger" 
+                        [hidden] = "!nombreState.errors?.minlength">
+                        El nombre debe tener un mínimo de 2 caracteres
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="text" 
+                    pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+                    class="form-control" size="30" 
+                    maxlength="200" 
+                    placeholder="Escriba su email" 
+                    [(ngModel)]="datosContacto.email"
+                    name="email"  
+                    #emailState = "ngModel"
+                    required>
+                </div>
+
+                <!-- Errores del email  -->
+                <div [hidden]="emailState.valid || emailState.untouched ">
+                    <div class="alert alert-danger" 
+                        [hidden]="!emailState.errors?.required">
+                        El email es obligatorio
+                    </div>
+
+                    <div class="alert alert-danger" 
+                        [hidden]="!emailState.errors?.pattern">
+                        El email debe tener el formato 'nombre@dominio.extension'
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="top" for="sugerencias">Sugerencias</label>
+                    <textarea class="form-control" 
+                    placeholder="Escriba sus sugerencias"
+                    maxlength="500"
+                    [(ngModel)]="datosContacto.sugerencias"
+                    name="sugerencias"
+                    #sugerenciasState = "ngModel"
+                    ></textarea>
+                </div>
+
+                <div class="form-check">
+                    <input type="checkbox" id="newsletter"
+                    [(ngModel)] = "datosContacto.newsletter"
+                    name="newsletter"
+                    #newsletterState = "ngModel">
+                    <label for="newsletter">Deseo recibir correos sobre pingüinos</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" id="terminos"
+                    [(ngModel)] = "datosContacto.terminos"
+                    name="terminos"
+                    #terminosState = "ngModel"
+                    required>
+                    <label for="terminos" required> Definitivamente he leído con detenimiento y acepto los términos de privacidad</label>
+                </div>
+                
+                <!-- Errores de los terminos  -->
+                <div [hidden]="terminosState.valid || terminosState.untouched ">
+                    <div class="alert alert-danger" 
+                        [hidden]="!terminosState.errors?.required">
+                        Debe leer detenidamente y aceptar los términos de privacidad.
+                    </div>
+                </div>
+
+                <p>
+                    <button type="submit" [disabled]="formContacto.invalid" class="btn btn-success"
+                    (click)="imprimirResultado()"
+                    >Enviar</button> &nbsp;
+                    <button type="button" [disabled]="formContacto.untouched" class="btn btn-danger"
+                    (click)="borrarFormContacto()"
+                    >Borrar</button>
+                </p>
+            </form>
+        </div>
     </div>
-    <div class="card-body">
-        <form #formContacto="ngForm" (ngSubmit)="enviarFormContacto()" novalidate>
-            
-            <div class="form-group">
-                <label class="center-block">Nombre</label>
-                <input type="text" class="form-control" size="30" 
-                placeholder="Escriba su nombre"
-                minlength="2"
-                [(ngModel)]="datosContacto.nombre"
-                name="nombre" 
-                #nombreState = "ngModel"
-                required>
-            </div>
-            <!-- Errores del Nombre -->
-            <div [hidden]="nombreState.valid || nombreState.untouched ">
-                <div class="alert alert-danger" 
-                    [hidden]="!nombreState.errors?.required">
-                    El nombre es obligatorio
-                </div>
-                <div class="alert alert-danger" 
-                    [hidden] = "!nombreState.errors?.minlength">
-                    El nombre debe tener un mínimo de 2 caracteres
-                </div>
-            </div>
+</ng-template>
 
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="text" 
-                pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
-                class="form-control" size="30" 
-                maxlength="200" 
-                placeholder="Escriba su email" 
-                [(ngModel)]="datosContacto.email"
-                name="email"  
-                #emailState = "ngModel"
-                required>
-            </div>
-
-            <!-- Errores del email  -->
-            <div [hidden]="emailState.valid || emailState.untouched ">
-                <div class="alert alert-danger" 
-                    [hidden]="!emailState.errors?.required">
-                    El email es obligatorio
-                </div>
-
-                <div class="alert alert-danger" 
-                    [hidden]="!emailState.errors?.pattern">
-                    El email debe tener el formato 'nombre@dominio.extension'
-                </div>
-            </div>
-            
-            <div class="form-group">
-                <label class="top" for="sugerencias">Sugerencias</label>
-                <textarea class="form-control" 
-                placeholder="Escriba sus sugerencias"
-                [(ngModel)]="datosContacto.sugerencias"
-                name="sugerencias"
-                #sugerenciasState = "ngModel"
-                ></textarea>
-            </div>
-
-            <div class="form-check">
-                <input type="checkbox" id="newsletter"
-                [(ngModel)] = "datosContacto.newsletter"
-                name="newsletter"
-                #newsletterState = "ngModel">
-                <label for="newsletter">Deseo recibir correos sobre pingüinos</label>
-            </div>
-            <div class="form-check">
-                <input type="checkbox" id="terminos"
-                [(ngModel)] = "datosContacto.terminos"
-                name="terminos"
-                #terminosState = "ngModel"
-                required>
-                <label for="terminos" required> Definitivamente he leído con detenimiento y acepto los términos de privacidad</label>
-            </div>
-            
-            <!-- Errores de los terminos  -->
-             <div [hidden]="terminosState.valid || terminosState.untouched ">
-                <div class="alert alert-danger" 
-                    [hidden]="!terminosState.errors?.required">
-                    Debe leer detenidamente y aceptar los términos de privacidad.
-                </div>
-            </div>
-
-            <p>
-                <button type="submit" [disabled]="formContacto.invalid" class="btn btn-success">Enviar</button> &nbsp;
-                <button type="reset" [disabled]="formContacto.untouched" class="btn btn-danger"
-                (click)="borrarFormContacto()"
-                >Borrar</button>
-            </p>
-        </form>
+<div *ngIf="showResultados; then resultadosForm"></div>
+<ng-template #resultadosForm>
+    <div class="list-group">
+        <a class="list-group-item"><b>Nombre:</b> {{datosContacto.nombre}}</a>
+        <a class="list-group-item"><b>Email:</b>  {{datosContacto.email}}</a>
+        <a class="list-group-item"><b>Sugerencias:</b> {{datosContacto.sugerencias}}</a>
+        <a class="list-group-item"><b>Newsletter:</b> {{datosContacto.newsletter}}</a>
+        <a class="list-group-item"><b>Acepta terminos:</b> {{datosContacto.terminos}}</a>
     </div>
-<!--     <div class="card-footer text-muted">
-        Footer
-    </div> -->
-</div>
-
+    <button type="button" class="btn btn-primary volver" (click)="volver()">Volver</button>
+    
+</ng-template>
 
 <!-- <div id="resultado_sugerencia" class="oculto salidaDatos">
     <h2>Datos de la sugerencia</h2>
