@@ -7,6 +7,7 @@ import { Post } from '../models/post.model';
 export class FirebaseService {
 
   oItems: Array<any>;
+  oPost: AngularFireList<Post>;
 
   constructor(public db: AngularFireDatabase) {
     this.oItems = [];
@@ -17,6 +18,7 @@ export class FirebaseService {
         }
       )
     );
+    this.oPost = db.list('/posts');
   }
 
   getDB() {
@@ -28,7 +30,7 @@ export class FirebaseService {
   }
 
   addPost(oPost: Post): void {
-    this.oItems.push(oPost);
+    this.oPost.push(oPost);
   }
 
 }

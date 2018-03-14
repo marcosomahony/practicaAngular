@@ -24,7 +24,7 @@ export class NewComponent implements OnInit {
   }
 
   addPost() {
-    this.oPost = {title: this.sTitulo, author: this.sAutor, image: this.sImagen, content: this.sContenido};
+    this.oPost = {title: this.sTitulo, author: this.sAutor, img: this.sImagen, content: this.sContenido};
     this.firebase.addPost(this.oPost);
     console.log(this.oPost);
   }
