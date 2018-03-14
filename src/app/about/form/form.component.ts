@@ -10,12 +10,14 @@ import { ContactoIf } from '../../models/contacto.model';
 export class FormComponent implements OnInit {
 
   datosContacto: ContactoIf;
+  showResultados: boolean;
   @ViewChild('formContacto') formulario: any;
 
   constructor() { }
 
   ngOnInit() {
     this.inicializarForm();
+    this.showResultados = false;
   }
 
   inicializarForm() {
@@ -23,7 +25,7 @@ export class FormComponent implements OnInit {
       nombre: '',
       email: '',
       sugerencias: '',
-      newsletter: false,
+      newsletter: true,
       terminos: false
     };
   }
@@ -33,6 +35,15 @@ export class FormComponent implements OnInit {
   }
 
   borrarFormContacto() {
+    this.inicializarForm();
+  }
+
+  imprimirResultado() {
+    this.showResultados = true;
+  }
+
+  volver() {
+    this.showResultados = false;
     this.inicializarForm();
   }
 }
