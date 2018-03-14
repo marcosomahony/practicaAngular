@@ -7,11 +7,13 @@ import { DisplayComponent } from './display/display.component';
 import { NewComponent } from './new/new.component';
 import { FirebaseService } from '../services/firebase.service';
 import { PostComponent } from './post/post.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
-    BlogRoutingModule
+    BlogRoutingModule,
+    FormsModule
   ],
   declarations: [BlogComponent,
     DisplayComponent,

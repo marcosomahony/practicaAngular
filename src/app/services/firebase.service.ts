@@ -27,4 +27,8 @@ export class FirebaseService {
     return this.oItems[id];
   }
 
+  addPost(oPost: Post) {
+    // TO DO
+  }
+
 }

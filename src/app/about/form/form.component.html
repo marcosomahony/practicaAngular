@@ -1,63 +1,106 @@
-<!--     <div class="card">
-        <div class="card-header">
-            Contacto
-        </div>
-        <div class="card-body">
-            <h4 class="card-title">Title</h4>
-            <p class="card-text">Text</p>
-        </div>
-        <div class="card-footer text-muted">
-            Footer
-        </div>
-    </div> -->
-    
-    
-    <form [formGroup]="formContacto" (ngSubmit) = "enviarFormContacto()">
-        <fieldset>
-            <legend>Contacto</legend>
-            <p>
-                <label for="nombre">Nombre</label>
-                <input type="text" id="nombre" size="30" 
-                placeholder="Escriba su nombre" 
-                formControlName="nombre"
+<div class="card">
+    <div class="card-header">
+        <h4>Contacto</h4>
+    </div>
+    <div class="card-body">
+        <form #formContacto="ngForm" (ngSubmit)="enviarFormContacto()" novalidate>
+            
+            <div class="form-group">
+                <label class="center-block">Nombre</label>
+                <input type="text" class="form-control" size="30" 
+                placeholder="Escriba su nombre"
+                minlength="2"
+                [(ngModel)]="datosContacto.nombre"
+                name="nombre" 
+                #nombreState = "ngModel"
                 required>
-            </p>
-           <!--  <div id="nombre-validate" class="validate oculto">
-                <i class="fa fa-times-circle"></i> El nombre no puede estar vacío</div> -->
-            <p>
+            </div>
+            <!-- Errores del Nombre -->
+            <div [hidden]="nombreState.valid || nombreState.untouched ">
+                <div class="alert alert-danger" 
+                    [hidden]="!nombreState.errors?.required">
+                    El nombre es obligatorio
+                </div>
+                <div class="alert alert-danger" 
+                    [hidden] = "!nombreState.errors?.minlength">
+                    El nombre debe tener un mínimo de 2 caracteres
+                </div>
+            </div>
+
+            <div class="form-group">
                 <label for="email">Email</label>
-                <input type="text" id="email" size="30" 
-                maxlength="200"
+                <input type="text" 
+                pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+                class="form-control" size="30" 
+                maxlength="200" 
                 placeholder="Escriba su email" 
-                formControlName="email"
+                [(ngModel)]="datosContacto.email"
+                name="email"  
+                #emailState = "ngModel"
                 required>
-            </p>
-<!--             <div id="email-validate" class="validate oculto">
-                <i class="fa fa-times-circle"></i> El email no puede estar vacío</div> -->
-            <p>
+            </div>
+
+            <!-- Errores del email  -->
+            <div [hidden]="emailState.valid || emailState.untouched ">
+                <div class="alert alert-danger" 
+                    [hidden]="!emailState.errors?.required">
+                    El email es obligatorio
+                </div>
+
+                <div class="alert alert-danger" 
+                    [hidden]="!emailState.errors?.pattern">
+                    El email debe tener el formato 'nombre@dominio.extension'
+                </div>
+            </div>
+            
+            <div class="form-group">
                 <label class="top" for="sugerencias">Sugerencias</label>
-                <textarea id="sugerencias" maxlength="350" 
-                placeholder="Escriba sus sugerencias" 
-                formControlName="sugerencias"></textarea>
-            </p>
-            <p>
-                <input type="checkbox" id="newsletter" formControlName="newsletter">
+                <textarea class="form-control" 
+                placeholder="Escriba sus sugerencias"
+                [(ngModel)]="datosContacto.sugerencias"
+                name="sugerencias"
+                #sugerenciasState = "ngModel"
+                ></textarea>
+            </div>
+
+            <div class="form-check">
+                <input type="checkbox" id="newsletter"
+                [(ngModel)] = "datosContacto.newsletter"
+                name="newsletter"
+                #newsletterState = "ngModel">
                 <label for="newsletter">Deseo recibir correos sobre pingüinos</label>
-            </p>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" id="terminos"
+                [(ngModel)] = "datosContacto.terminos"
+                name="terminos"
+                #terminosState = "ngModel"
+                required>
+                <label for="terminos" required> Definitivamente he leído con detenimiento y acepto los términos de privacidad</label>
+            </div>
+            
+            <!-- Errores de los terminos  -->
+             <div [hidden]="terminosState.valid || terminosState.untouched ">
+                <div class="alert alert-danger" 
+                    [hidden]="!terminosState.errors?.required">
+                    Debe leer detenidamente y aceptar los términos de privacidad.
+                </div>
+            </div>
+
             <p>
-                <input type="checkbox" id="terminos" formControlName="terminos">
-                <label for="terminos">Definitivamente he leído con detenimiento y acepto los términos de privacidad</label>
+                <button type="submit" [disabled]="formContacto.invalid" class="btn btn-success">Enviar</button> &nbsp;
+                <button type="reset" [disabled]="formContacto.untouched" class="btn btn-danger"
+                (click)="borrarFormContacto()"
+                >Borrar</button>
             </p>
-<!--             <div id="terminos-validate" class="validate oculto">
-                <i class="fa fa-times-circle"></i> Debe aceptar los términos de privacidad</div> -->
-            <p>
-                <button type="submit"
-                [disabled]="formContacto.pristine" class="btn btn-success">Enviar</button> &nbsp;
-        <button type="reset"
-                [disabled]="formContacto.pristine" class="btn btn-danger">Borrar</button>
-            </p>
-        </fieldset>
-    </form>
+        </form>
+    </div>
+<!--     <div class="card-footer text-muted">
+        Footer
+    </div> -->
+</div>
+
+
 <!-- <div id="resultado_sugerencia" class="oculto salidaDatos">
     <h2>Datos de la sugerencia</h2>
     <ul id="parrafo_resultado"> </ul>

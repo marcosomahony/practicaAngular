@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { Component, ViewChild, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import { ContactoIf } from '../../models/contacto.model';
 
 @Component({
   selector: 'bbl-form',
@@ -8,24 +9,30 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 })
 export class FormComponent implements OnInit {
 
-  // asociada al formulario de contacto
-  formContacto: FormGroup;
+  datosContacto: ContactoIf;
+  @ViewChild('formContacto') formulario: any;
 
-  // FormBuilder necesario para instanciar el FormGroup
-  constructor(private formBuilder: FormBuilder) { }
+  constructor() { }
 
   ngOnInit() {
-    this.formContacto = this.formBuilder.group({
+    this.inicializarForm();
+  }
+
+  inicializarForm() {
+    this.datosContacto = {
       nombre: '',
       email: '',
       sugerencias: '',
-      newsletter: true,
+      newsletter: false,
       terminos: false
-    });
+    };
   }
 
   enviarFormContacto() {
     console.log('Datos del Form enviados!');
   }
 
+  borrarFormContacto() {
+    this.inicializarForm();
+  }
 }
