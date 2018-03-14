@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase, AngularFireList  } from 'angularfire2/database';
+import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
 import { Post } from '../models/post.model';
 import { ContactoIf } from '../models/contacto.model';
@@ -7,33 +7,38 @@ import { ContactoIf } from '../models/contacto.model';
 @Injectable()
 export class FirebaseService {
 
-  oItems: Array<any>;
+  oItems: Array<Post>;
   oPost: AngularFireList<Post>;
   oContacto: AngularFireList<ContactoIf>;
 
   constructor(public db: AngularFireDatabase) {
     this.oItems = [];
-    db.list('/posts').valueChanges().subscribe(
+    this.oPost = db.list('/posts');
+    this.oPost.valueChanges().subscribe(
       value => value.forEach(
         element => {
-          this.oItems.push(element);
+          this.oItems.push(new Post(
+            element.title,
+            element.author,
+            element.content,
+            element.img)
+          );
         }
       )
     );
-    this.oPost = db.list('/posts');
     this.oContacto = db.list('/contactos');
   }
 
-  getDB() {
+  getDB(): Array<Post> {
     return this.oItems;
-  }
-
-  getItem(id: number) {
-    return this.oItems[id];
   }
 
   addPost(oPost: Post): void {
     this.oPost.push(oPost);
+  }
+
+  getLastIndex() {
+    return this.oItems.length;
   }
 
   addContacto(oContacto: ContactoIf): void {
