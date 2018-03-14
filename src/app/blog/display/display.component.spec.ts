@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DisplayComponent } from './display.component';
+import { FirebaseApp } from 'angularfire2';
+import { FirebaseService } from '../../services/firebase.service';
+import { AngularFireDatabase } from 'angularfire2/database';
 
 describe('DisplayComponent', () => {
   let component: DisplayComponent;
@@ -8,7 +11,8 @@ describe('DisplayComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DisplayComponent ]
+      declarations: [ DisplayComponent ],
+      providers: [FirebaseApp, FirebaseService, AngularFireDatabase]
     })
     .compileComponents();
   }));

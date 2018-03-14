@@ -4,6 +4,10 @@ import { BlogComponent } from './blog.component';
 import { NewComponent } from './new/new.component';
 import { PostComponent } from './post/post.component';
 import { DisplayComponent } from './display/display.component';
+import { FormsModule } from '@angular/forms';
+import { FirebaseService } from '../services/firebase.service';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { FirebaseApp } from 'angularfire2';
 
 describe('BlogComponent', () => {
   let component: BlogComponent;
@@ -15,7 +19,9 @@ describe('BlogComponent', () => {
       NewComponent,
       PostComponent,
       DisplayComponent
-      ]
+      ],
+      imports: [FormsModule],
+      providers: [FirebaseService, AngularFireDatabase, FirebaseApp]
     })
     .compileComponents();
   }));

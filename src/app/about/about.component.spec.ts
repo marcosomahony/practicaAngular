@@ -16,7 +16,7 @@ describe('AboutComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ AboutComponent, CardsComponent, FormComponent ],
       imports: [ FormsModule ],
-      providers: [FirebaseService, AngularFireDatabase, FirebaseApp, FirebaseApp ]
+      providers: [FirebaseService, AngularFireDatabase, FirebaseApp ]
     })
     .compileComponents();
   }));
