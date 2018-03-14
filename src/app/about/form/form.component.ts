@@ -12,7 +12,6 @@ export class FormComponent implements OnInit {
 
   datosContacto: ContactoIf;
   showResultados: boolean;
-  @ViewChild('formContacto') formulario: any;
 
   constructor(public firebase: FirebaseService) { }
 
