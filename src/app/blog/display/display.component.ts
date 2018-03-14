@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
 import { FirebaseService } from '../../services/firebase.service';
+import { Post } from '../../models/post.model';
 
 @Component({
   selector: 'bbl-display',
@@ -10,11 +11,13 @@ import { FirebaseService } from '../../services/firebase.service';
 })
 export class DisplayComponent implements OnInit {
 
-  items: Observable<any[]>;
+  oItems = Array<Post>();
 
   constructor(public firebase: FirebaseService) { }
 
   ngOnInit() {
-    this.items = this.firebase.getDB();
+    this.oItems = [];
+    this.oItems = this.firebase.getDB();
+    console.log(this.oItems);
   }
 }

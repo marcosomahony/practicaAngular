@@ -1,18 +1,30 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
+import { Post } from '../models/post.model';
 
 @Injectable()
 export class FirebaseService {
 
-  items: Observable<any[]>;
+  oItems: Array<any>;
 
   constructor(public db: AngularFireDatabase) {
-    this.items = db.list('/posts').valueChanges();
+    this.oItems = [];
+    db.list('/posts').valueChanges().subscribe(
+      value => value.forEach(
+        element => {
+          this.oItems.push(element);
+        }
+      )
+    );
   }
 
   getDB() {
-    return this.items;
+    return this.oItems;
+  }
+
+  getItem(id: number) {
+    return this.oItems[id];
   }
 
 }
