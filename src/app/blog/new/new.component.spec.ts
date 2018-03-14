@@ -1,6 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NewComponent } from './new.component';
+import { FormsModule } from '@angular/forms';
+import { FirebaseApp } from 'angularfire2';
+import { FirebaseService } from '../../services/firebase.service';
+import { AngularFireDatabase } from 'angularfire2/database';
 
 describe('NewComponent', () => {
   let component: NewComponent;
@@ -8,7 +12,9 @@ describe('NewComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NewComponent ]
+      declarations: [ NewComponent ],
+      imports: [FormsModule],
+      providers: [FirebaseApp, FirebaseService, AngularFireDatabase]
     })
     .compileComponents();
   }));
