@@ -15,14 +15,16 @@ export class FirebaseService {
     this.oItems = [];
     this.oPost = db.list('/posts');
     this.oPost.valueChanges().subscribe(
+      () => this.oItems = [],
       value => value.forEach(
         element => {
-          this.oItems.push(new Post(
+          const item = new Post(
             element.title,
             element.author,
             element.content,
-            element.img)
+            element.img
           );
+          this.oItems.push(item);
         }
       )
     );
@@ -44,5 +46,4 @@ export class FirebaseService {
   addContacto(oContacto: ContactoIf): void {
     this.oContacto.push(oContacto);
   }
-
 }

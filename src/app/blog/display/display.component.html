@@ -5,7 +5,7 @@
         {{ item.title }}
       </div>
       <div class="card-body">
-        <img *ngIf="item.img" [src]="item.img" class="img-fluid danger p-2 mr-3 col-2 float-left" alt="">
+        <img *ngIf="item.img" [src]="item.img" onerror="this.src = 'assets/noimg.png'" class="img-fluid danger p-2 mr-3 col-2 float-left" alt="">
         <p class="card-text">{{ item.content }}</p>
       </div>
       <div class="card-footer">

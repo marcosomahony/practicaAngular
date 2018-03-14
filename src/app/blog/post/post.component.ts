@@ -22,15 +22,11 @@ export class PostComponent implements OnInit {
   ngOnInit() {
     this.items = [];
     this.id = this.activatedRoute.snapshot.params['id'];
-    this._reloadDB();
+    this.items = this.firebase.getDB();
   }
 
   back() {
     this.router.navigate([`blog`]);
-  }
-
-  _reloadDB() {
-    this.items = this.firebase.getDB();
   }
 
 }
