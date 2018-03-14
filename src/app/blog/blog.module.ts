@@ -6,6 +6,7 @@ import { BlogComponent } from './blog.component';
 import { DisplayComponent } from './display/display.component';
 import { NewComponent } from './new/new.component';
 import { FirebaseService } from '../services/firebase.service';
+import { PostComponent } from './post/post.component';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
@@ -16,7 +17,8 @@ import { FormsModule } from '@angular/forms';
   ],
   declarations: [BlogComponent,
     DisplayComponent,
-    NewComponent
+    NewComponent,
+    PostComponent
   ],
   providers: [
     FirebaseService

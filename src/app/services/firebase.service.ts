@@ -6,20 +6,29 @@ import { Post } from '../models/post.model';
 @Injectable()
 export class FirebaseService {
 
-  items: Observable<any[]>;
-  public posts: AngularFireList<Post[]>;
+  oItems: Array<any>;
 
   constructor(public db: AngularFireDatabase) {
-    this.items = db.list('/posts').valueChanges();
-    this.posts = db.list('/posts');
+    this.oItems = [];
+    db.list('/posts').valueChanges().subscribe(
+      value => value.forEach(
+        element => {
+          this.oItems.push(element);
+        }
+      )
+    );
   }
 
   getDB() {
-    return this.items;
+    return this.oItems;
   }
 
-  addPost(oPost: Post[]): void {
-    this.posts.push(oPost);
+  getItem(id: number) {
+    return this.oItems[id];
+  }
+
+  addPost(oPost: Post): void {
+    this.oItems.push(oPost);
   }
 
 }
