@@ -1,16 +1,19 @@
 <div class="container ">
-  <div class="card p-1 mb-4">
-    <div class="card-header">
-      {{ item.title }}
+  <div class="card p-1 mb-4" *ngIf="items[id]; else loading">
+    <div class="card-header text-center">
+      {{ items[id].title }}
     </div>
     <div class="card-body">
-      <img [src]="item.img" class="img-fluid danger p-2 mr-3 col-2 float-left" alt="">
-      <p class="card-text">{{ item.content }}</p>
+      <img [src]="items[id].img" class="img1 img-fluid d-block m-auto" alt="">
+      <hr>
+      <p class="card-text">{{ items[id].content }}</p>
     </div>
     <div class="card-footer">
       <p class="float-right m-0">
-        Autor: {{ item.author }}
+        Autor: {{ items[id].author }}
       </p>
+      <button type="button" (click)="back()" class="btn btn-primary float-left mr-2 px-5"><i class="fa fa-chevron-circle-left"></i> Volver</button>
     </div>
   </div>
+  <ng-template #loading><p>Cargando...</p></ng-template>
 </div>

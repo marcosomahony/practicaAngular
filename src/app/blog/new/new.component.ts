@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Post } from '../../models/post.model';
 import { FirebaseService } from '../../services/firebase.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'bbl-new',
@@ -14,7 +15,10 @@ export class NewComponent implements OnInit {
   sContenido: string;
   oPost: Post;
 
-  constructor(public firebase: FirebaseService) { }
+  constructor(
+    public firebase: FirebaseService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
     this.sTitulo = '';
@@ -24,9 +28,9 @@ export class NewComponent implements OnInit {
   }
 
   addPost() {
-    this.oPost = {title: this.sTitulo, author: this.sAutor, img: this.sImagen, content: this.sContenido};
+    this.oPost = { title: this.sTitulo, author: this.sAutor, img: this.sImagen, content: this.sContenido };
     this.firebase.addPost(this.oPost);
-    console.log(this.oPost);
+    window.location.replace(`blog/post/${this.firebase.getLastIndex()}`);
   }
 
 

@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireDatabase } from 'angularfire2/database';
-import { Observable } from 'rxjs/Observable';
 import { FirebaseService } from '../../services/firebase.service';
 import { Post } from '../../models/post.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'bbl-display',
@@ -13,11 +12,17 @@ export class DisplayComponent implements OnInit {
 
   oItems = Array<Post>();
 
-  constructor(public firebase: FirebaseService) { }
+  constructor(
+    public firebase: FirebaseService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
     this.oItems = [];
     this.oItems = this.firebase.getDB();
-    console.log(this.oItems);
+  }
+
+  gotoPost(id) {
+    this.router.navigate([`blog/post/${id}`]);
   }
 }
