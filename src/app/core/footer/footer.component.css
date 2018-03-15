@@ -7,3 +7,12 @@ p {
     text-align: center;
     margin: 0rem;
 }
+
+p img {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.flip{
+    transform: scaleX(-1);
+}
