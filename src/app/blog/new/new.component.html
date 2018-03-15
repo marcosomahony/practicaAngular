@@ -1,12 +1,12 @@
 <div class="container">
   <div class="card">
     <div class="card-header">
-      <h4 class="card-title">Nuevo Post</h4>
+      <h4 class="card-title">Añadir Post</h4>
     </div>
     <div class="card-body">
-      <form #formNewPost = "ngForm">
+      <form #formNewPost = "ngForm" (ngSubmit)="addPost()">
         <div class="form-group">
-          <label for="formTitulo">Titulo del Post: </label>
+          <label for="formTitulo">Titulo del Post </label>
           <input type="text" class="form-control" id="formTitulo" 
           placeholder="Elija un título descriptivo" name="titulo"
           minlength="2"
@@ -28,7 +28,7 @@
         </div>
 
         <div class="form-group">
-          <label for="formAutor">Firma: </label>
+          <label for="formAutor">Firma </label>
           <input type="text" class="form-control" id="formAutor" 
           placeholder="Introduzca su firma" name="autor" 
           #firmaState = "ngModel"
@@ -45,23 +45,38 @@
         </div>
 
         <div class="form-group">
-          <label for="formImagen">Imagen: </label>
+          <label for="formImagen">Imagen </label>
           <input type="text" class="form-control" id="formImagen" 
           placeholder="Opcional. Copie la url de la imagen que desea incluir." 
           name="imagen" 
           [(ngModel)]="sImagen" >
         </div>
+        
         <div class="form-group">
-          <label for="formContenido">Contenido del Post: </label>
+          <label for="formContenido">Contenido del Post </label>
           <textarea class="form-control" id="formContenido" rows="3" 
-          name="contenido" 
+          name="contenido"
+          minlength="20"
           maxlength="1500"
           #contenidoState = "ngModel"
-          [(ngModel)]="sContenido" ></textarea>
+          [(ngModel)]="sContenido" 
+          required></textarea>
         </div>
 
-        <button type="button" class="btn btn-primary" 
-        (click)="addPost()">Submit</button>
+        <!-- Validación contenido del post  -->
+        <div [hidden] = "contenidoState.valid || contenidoState.untouched">
+          <div class="alert alert-danger" 
+            [hidden]="!contenidoState.errors?.required">
+            Incluya el contenido del post
+          </div>
+          <div class="alert alert-danger" 
+            [hidden]="!contenidoState.errors?.minlength">
+            El contenido del post es demasiado corto
+          </div>
+        </div>
+
+        <button type="submit" [disabled]="formNewPost.invalid" 
+        class="btn btn-primary">Submit</button>
       </form>
     </div>
   </div>
