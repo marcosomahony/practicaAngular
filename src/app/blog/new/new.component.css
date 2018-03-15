@@ -1,3 +1,16 @@
+.card{
+    border: 1px solid rgb(143, 255, 167);
+}
+
+.card-header{
+    background-color: rgb(209, 255, 227);
+    color: rgb(0, 56, 22)
+}
+
+.card-body{
+    background-color: rgb(245, 252, 247);
+}
+
 .container{
     margin-top: 1rem;
     padding-left: 0px;

@@ -3,6 +3,11 @@
     padding-right: 0px;
 }
 
+.card-header {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 100;
+}
+
 span {
         font-weight: 500;
 }
