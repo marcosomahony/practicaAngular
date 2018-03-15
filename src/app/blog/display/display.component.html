@@ -6,7 +6,7 @@
       </div>
       <div class="card-body">
         <img *ngIf="item.img" [src]="item.img" onerror="this.src = 'assets/noimg.png'" class="img-fluid danger p-2 mr-3 col-2 float-left" alt="">
-        <p class="card-text">{{ item.content }}</p>
+        <p class="card-text">{{ item.content | truncar : 200 }}</p>
       </div>
       <div class="card-footer">
         <p class="float-right m-0">
