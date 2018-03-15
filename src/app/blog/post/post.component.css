@@ -1,3 +1,8 @@
 .img1 {
     max-height: 20rem;
 }
+
+.container {
+    padding-left: 0px;
+    padding-right: 0px;
+}
