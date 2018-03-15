@@ -7,6 +7,10 @@
     font-weight: 100;
 }
 
+.card-footer p span {
+    font-weight: 500;
+}
+
 .container {
     padding-left: 0px;
     padding-right: 0px;
