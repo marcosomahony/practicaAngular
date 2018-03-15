@@ -1,7 +1,7 @@
 <div class="container ">
   <div class="card p-1 mb-4" *ngIf="items[id]; else loading">
     <div class="card-header text-center">
-      {{ items[id].title }}
+      <h4>{{ items[id].title }}</h4> 
     </div>
     <div class="card-body">
       <div *ngIf="items[id].img" onerror="this.style.display = 'none'">
