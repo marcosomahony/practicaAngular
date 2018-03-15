@@ -9,6 +9,10 @@
     --color_title_text: rgb(241, 253, 252);
 }/* You can add global styles to this file, and also import other style files */
 
+body{
+    background-color: #e8f0ff;
+}
+
 .wrapper {
     width: 60%;
     margin: 2rem auto;
