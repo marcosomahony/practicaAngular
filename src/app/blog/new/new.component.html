@@ -4,24 +4,64 @@
       <h4 class="card-title">Nuevo Post</h4>
     </div>
     <div class="card-body">
-      <form>
+      <form #formNewPost = "ngForm">
         <div class="form-group">
           <label for="formTitulo">Titulo del Post: </label>
-          <input type="text" class="form-control" id="formTitulo" placeholder="Obligatorio" name="titulo" [(ngModel)]="sTitulo">
+          <input type="text" class="form-control" id="formTitulo" 
+          placeholder="Elija un título descriptivo" name="titulo"
+          minlength="2"
+          #tituloState = "ngModel" 
+          [(ngModel)]="sTitulo"
+          required>
         </div>
+
+        <!-- Validación título del post  -->
+        <div [hidden] = "tituloState.valid || tituloState.untouched">
+          <div class="alert alert-danger" 
+            [hidden]="!tituloState.errors?.required">
+            Incluya el título del post
+          </div>
+          <div class="alert alert-danger" 
+            [hidden]="!tituloState.errors?.minlength">
+            El título del post es demasiado corto
+          </div>
+        </div>
+
         <div class="form-group">
           <label for="formAutor">Firma: </label>
-          <input type="text" class="form-control" id="formAutor" placeholder="Obligatorio" name="autor" [(ngModel)]="sAutor" >
+          <input type="text" class="form-control" id="formAutor" 
+          placeholder="Introduzca su firma" name="autor" 
+          #firmaState = "ngModel"
+          [(ngModel)]="sAutor" 
+          required>
         </div>
+
+        <!-- Validación firma del post  -->
+        <div [hidden] = "firmaState.valid || firmaState.untouched">
+          <div class="alert alert-danger" 
+            [hidden]="!firmaState.errors?.required">
+            Incluya la firma
+          </div>
+        </div>
+
         <div class="form-group">
-          <label for="formImagen">Imgen: </label>
-          <input type="text" class="form-control" id="formImagen" placeholder="Opcional. Copie la url de la imagen que desea incluir." name="imagen" [(ngModel)]="sImagen" >
+          <label for="formImagen">Imagen: </label>
+          <input type="text" class="form-control" id="formImagen" 
+          placeholder="Opcional. Copie la url de la imagen que desea incluir." 
+          name="imagen" 
+          [(ngModel)]="sImagen" >
         </div>
         <div class="form-group">
           <label for="formContenido">Contenido del Post: </label>
-          <textarea class="form-control" id="formContenido" rows="3" name="contenido" [(ngModel)]="sContenido" ></textarea>
+          <textarea class="form-control" id="formContenido" rows="3" 
+          name="contenido" 
+          maxlength="1500"
+          #contenidoState = "ngModel"
+          [(ngModel)]="sContenido" ></textarea>
         </div>
-        <button type="button" class="btn btn-primary" (click)="addPost()">Submit</button>
+
+        <button type="button" class="btn btn-primary" 
+        (click)="addPost()">Submit</button>
       </form>
     </div>
   </div>
