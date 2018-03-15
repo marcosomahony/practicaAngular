@@ -15,20 +15,23 @@ export class FirebaseService {
     this.oItems = [];
     this.oPost = db.list('/posts');
     this.oPost.valueChanges().subscribe(
-      () => this.oItems = [],
-      value => value.forEach(
-        element => {
-          const item = new Post(
-            element.title,
-            element.author,
-            element.content,
-            element.img
-          );
-          this.oItems.push(item);
-        }
-      )
+      value => this._processData(value)
     );
     this.oContacto = db.list('/contactos');
+  }
+
+  _processData(data) {
+    data.forEach(
+      element => {
+        const item = new Post(
+          element.title,
+          element.author,
+          element.content,
+          element.img
+        );
+        this.oItems.push(item);
+      }
+    );
   }
 
   getDB(): Array<Post> {
