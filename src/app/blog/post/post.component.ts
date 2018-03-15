@@ -10,7 +10,7 @@ import { Post } from '../../models/post.model';
 })
 export class PostComponent implements OnInit {
 
-  public items: Array<Post>;
+  public items: Array<any>;
   public id: number;
 
   constructor(
@@ -22,11 +22,7 @@ export class PostComponent implements OnInit {
   ngOnInit() {
     this.items = [];
     this.id = this.activatedRoute.snapshot.params['id'];
-    this.firebase.getDB().then(
-      (response: any) => {
-        this.items = response;
-      }
-    );
+    this.items = this.firebase.getDB();
   }
 
   back() {

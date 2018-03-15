@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class DisplayComponent implements OnInit {
 
-  oItems = Array<Post>();
+  oItems = Array<any>();
 
   constructor(
     public firebase: FirebaseService,
@@ -19,11 +19,7 @@ export class DisplayComponent implements OnInit {
 
   ngOnInit() {
     this.oItems = [];
-    this.firebase.getDB().then(
-      (response: any) => {
-        this.oItems = response;
-      }
-    );
+    this.oItems = this.firebase.getDB();
   }
 
   gotoPost(id) {
