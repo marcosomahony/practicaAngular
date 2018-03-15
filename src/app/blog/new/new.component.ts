@@ -29,8 +29,8 @@ export class NewComponent implements OnInit {
 
   addPost() {
     this.oPost = { title: this.sTitulo, author: this.sAutor, img: this.sImagen, content: this.sContenido };
-    this.firebase.addPost(this.oPost);
-    window.location.replace(`blog/post/${this.firebase.getLastIndex()}`);
+    const lastPost = this.firebase.addPost(this.oPost);
+    window.location.replace(`blog/post/${lastPost}`);
   }
 
 

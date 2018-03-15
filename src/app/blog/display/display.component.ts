@@ -19,7 +19,11 @@ export class DisplayComponent implements OnInit {
 
   ngOnInit() {
     this.oItems = [];
-    this.oItems = this.firebase.getDB();
+    this.firebase.getDB().then(
+      (response: any) => {
+        this.oItems = response;
+      }
+    );
   }
 
   gotoPost(id) {
