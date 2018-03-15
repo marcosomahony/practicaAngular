@@ -4,7 +4,7 @@
       <h4 class="card-title">Añadir Post</h4>
     </div>
     <div class="card-body">
-      <form #formNewPost = "ngForm">
+      <form #formNewPost = "ngForm" (ngSubmit)="addPost()">
         <div class="form-group">
           <label for="formTitulo">Titulo del Post </label>
           <input type="text" class="form-control" id="formTitulo" 
@@ -56,7 +56,7 @@
           <label for="formContenido">Contenido del Post </label>
           <textarea class="form-control" id="formContenido" rows="3" 
           name="contenido"
-          minlength="50"
+          minlength="20"
           maxlength="1500"
           #contenidoState = "ngModel"
           [(ngModel)]="sContenido" 
@@ -75,8 +75,8 @@
           </div>
         </div>
 
-        <button type="button" class="btn btn-primary" 
-        (click)="addPost()">Submit</button>
+        <button type="submit" [disabled]="formNewPost.invalid" 
+        class="btn btn-primary">Submit</button>
       </form>
     </div>
   </div>
