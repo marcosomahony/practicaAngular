@@ -2,17 +2,18 @@
   <div *ngFor="let item of oItems">
     <div class="card p-1 mb-4">
       <div class="card-header">
-        {{ item.title }}
+        <h5>{{ item.title }} </h5>
       </div>
       <div class="card-body">
-        <img *ngIf="item.img" [src]="item.img" onerror="this.src = 'assets/noimg.png'" class="img-fluid danger p-2 mr-3 col-2 float-left" alt="">
+        <img *ngIf="item.img" [src]="item.img" onerror="this.src = 'assets/noimg.png'" class="img-fluid danger p-2 mr-3 col-2 float-left"
+          alt="imagen de post">
         <p class="card-text">{{ item.content | truncar : 200 }}</p>
       </div>
       <div class="card-footer">
-        <p class="float-right m-0">
-          Autor: {{ item.author }}
-        </p>
-        <button type="button" (click)="gotoPost(oItems.indexOf(item))" class="btn btn-primary float-left mr-2 px-5">Abrir <i class="fa fa-chevron-circle-right"></i></button>
+        <p class="float-right m-0">Autor: <span>{{ item.author }}</span></p>
+        <button type="button" (click)="gotoPost(oItems.indexOf(item))" class="btn btn-primary float-left mr-2 px-5">Abrir
+          <i class="fa fa-chevron-circle-right"></i>
+        </button>
       </div>
     </div>
   </div>

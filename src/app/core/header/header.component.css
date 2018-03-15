@@ -20,6 +20,10 @@ h1 img {
     height: 1.5rem;
 }
 
+.flip {
+    transform: scaleX(-1)
+}
+
 @media screen and (max-width: 1024px) {
     /*tablet grande*/
     header h1 {

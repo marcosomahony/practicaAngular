@@ -1,6 +1,20 @@
 .container{
-    padding-left: 0rem;
-    padding-right: 0rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
     margin-left: 0rem;
     margin-right: 0rem;
+}
+
+.img-fluid {
+    margin: 0 auto;
+    display: block;
+    float: none;
+}
+
+.card-body {
+    align-content: center;
+}
+
+@media screen and (max-width:768px) {
+    
 }

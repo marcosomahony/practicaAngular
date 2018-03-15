@@ -31,7 +31,7 @@ export class FormComponent implements OnInit {
   }
 
   enviarFormContacto() {
-    console.log('Datos del Form enviados!');
+    this.firebase.addContacto(this.datosContacto);
   }
 
   borrarFormContacto() {
