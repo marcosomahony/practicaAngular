@@ -14,7 +14,6 @@ export class TruncarPipe implements PipeTransform {
     } else {
       out = texto;
     }
-
     return out;
   }
 }
