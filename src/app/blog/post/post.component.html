@@ -1,24 +1,37 @@
 <div class="container ">
-  <div class="card p-1 mb-4" *ngIf="items[id]; else loading">
-    <div class="card-header text-center">
-      <h4>{{ items[id].title }}</h4> 
-    </div>
-    <div class="card-body">
-      <div *ngIf="items[id].img" onerror="this.style.display = 'none'">
-        <img [src]="items[id].img" onerror="this.src = 'assets/noimg.png'" class="img1 img-fluid d-block m-auto" alt="">
-        <hr>
+  <div class="card p-1 mb-4" *ngIf="items.length; else loading">
+    <div *ngIf="items.length > id; else notfound">
+      <div class="card-header text-center">
+        <h4>{{ items[id].title }}</h4>
       </div>
-      <p class="card-text">{{ items[id].content }}</p>
-    </div>
-    <div class="card-footer">
-      <p class="float-right m-0">
-        Autor: <span>{{ items[id].author }}</span>
-      </p>
-      <button type="button" (click)="back()" class="btn btn-primary float-left mr-2 px-5">
-        <i class="fa fa-chevron-circle-left"></i> Volver</button>
+      <div class="card-body">
+        <div *ngIf="items[id].img" onerror="this.style.display = 'none'">
+          <img [src]="items[id].img" onerror="this.src = 'assets/noimg.png'" class="img1 img-fluid d-block m-auto" alt="">
+          <hr>
+        </div>
+        <p class="card-text">{{ items[id].content }}</p>
+      </div>
+      <div class="card-footer">
+        <p class="float-right m-0">
+          Autor:
+          <span>{{ items[id].author }}</span>
+        </p>
+        <button type="button" (click)="back()" class="btn btn-primary float-left mr-2 px-5">
+          <i class="fa fa-chevron-circle-left"></i> Volver</button>
+      </div>
     </div>
   </div>
   <ng-template #loading>
     <p>Cargando...</p>
+  </ng-template>
+  <ng-template #notfound>
+    <div class="card-body">
+      <h2>404 Not Found</h2>
+      <p>No se encuentra el artículo</p>
+    </div>
+    <div class="card-footer">
+      <button type="button" (click)="back()" class="btn btn-primary float-left mr-2 px-5">
+        <i class="fa fa-chevron-circle-left"></i> Volver</button>
+    </div>
   </ng-template>
 </div>
