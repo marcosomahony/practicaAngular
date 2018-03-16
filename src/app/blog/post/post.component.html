@@ -5,7 +5,7 @@
         <h4>{{ items[id].title }}</h4>
       </div>
       <div class="card-body">
-        <div *ngIf="items[id].img" onerror="this.style.display = 'none'">
+        <div *ngIf="items[id].img">
           <img [src]="items[id].img" onerror="this.src = 'assets/noimg.png'" class="img1 img-fluid d-block m-auto" alt="">
           <hr>
         </div>
