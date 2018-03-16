@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { FirebaseService } from '../services/firebase.service';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { FirebaseApp } from 'angularfire2';
+import { TruncarPipe } from '../pipes/truncar.pipe';
 
 describe('BlogComponent', () => {
   let component: BlogComponent;
@@ -18,7 +19,8 @@ describe('BlogComponent', () => {
       declarations: [ BlogComponent,
       NewComponent,
       PostComponent,
-      DisplayComponent
+      DisplayComponent,
+      TruncarPipe
       ],
       imports: [FormsModule],
       providers: [FirebaseService, AngularFireDatabase, FirebaseApp]

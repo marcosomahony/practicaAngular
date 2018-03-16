@@ -4,6 +4,7 @@ import { DisplayComponent } from './display.component';
 import { FirebaseApp } from 'angularfire2';
 import { FirebaseService } from '../../services/firebase.service';
 import { AngularFireDatabase } from 'angularfire2/database';
+import { TruncarPipe } from '../../pipes/truncar.pipe';
 
 describe('DisplayComponent', () => {
   let component: DisplayComponent;
@@ -11,7 +12,7 @@ describe('DisplayComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DisplayComponent ],
+      declarations: [ DisplayComponent, TruncarPipe ],
       providers: [FirebaseApp, FirebaseService, AngularFireDatabase]
     })
     .compileComponents();
